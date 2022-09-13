@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import image from '../assets/image.webp'
 import Card from 'react-bootstrap/Card'
 
 const Bug = ({ bug }) => {
@@ -8,7 +9,7 @@ const Bug = ({ bug }) => {
       <Card style={{ width: '18rem' }} className='m-3'>
         <Card.Img
           variant='top'
-          src='https://www.zdnet.com/a/img/resize/3835ebb307b845ccd906b6250e041ee6575491f3/2018/03/20/b27530ef-5740-4c52-8443-e2b3b48f950c/screen-shot-2018-03-20-at-10-27-25.jpg?auto=webp&fit=crop&height=170&width=300'
+          src={image}
         />
         <Card.Body>
           <Card.Title>
@@ -38,7 +39,7 @@ const Bug = ({ bug }) => {
 }
 
 Bug.propTypes = {
-  bug: PropTypes.Object
+  bug: PropTypes.object
 }
 
 export default Bug

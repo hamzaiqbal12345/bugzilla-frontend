@@ -9,7 +9,7 @@ const Bugs = ({ bugs }) => {
 }
 
 Bugs.propTypes = {
-  bugs: PropTypes.Array
+  bugs: PropTypes.array
 }
 
 export default Bugs

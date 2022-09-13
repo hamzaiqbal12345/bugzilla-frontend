@@ -11,12 +11,8 @@ const NavBar = () => {
         <Container>
           <Navbar.Brand>Bugzilla</Navbar.Brand>
           <Nav className='me-auto'>
-            <Nav.Link>
-              <Link class='text-white text-decoration-none' to='/'>Home</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link class='text-white text-decoration-none' to='/'>Projects</Link>
-            </Nav.Link>
+            <Link className='text-white text-decoration-none m-3' to='/'>Home</Link>
+            <Link className='text-white text-decoration-none mt-3 mb-3' to='/'>Projects</Link>
           </Nav>
         </Container>
       </Navbar>

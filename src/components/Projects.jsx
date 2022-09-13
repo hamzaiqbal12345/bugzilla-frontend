@@ -1,25 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { fetchData } from '../utilities/data'
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
-import {
-  Link
-} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Projects = () => {
   const [data, setData] = useState([])
-  const mounted = useRef(true)
 
   useEffect(() => {
-    mounted.current = true
     fetchData('/projects').then((data) => {
-      if (mounted.current) {
-        console.log(data)
-        setData(data)
-      }
+      setData(data)
     })
-
-    return () => (mounted.current = false)
   }, [])
 
   return (
@@ -40,7 +31,11 @@ const Projects = () => {
                 <tr key={project.id}>
                   <td>{project.title}</td>
                   <td>{project.description}</td>
-                  <td><Link to={`/project/${project.id}`}><Button variant='primary' >View</Button></Link></td>
+                  <td>
+                    <Link to={`/project/${project.id}`}>
+                      <Button variant='primary'>View</Button>
+                    </Link>
+                  </td>
                 </tr>
               )
             })}
