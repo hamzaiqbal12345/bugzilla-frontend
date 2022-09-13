@@ -8,23 +8,25 @@ import Button from 'react-bootstrap/Button'
 const ProjectDetails = () => {
   const [bugs, setBugs] = useState([])
   const [project, setProject] = useState()
+  const [error, setError] = useState()
 
   const { id } = useParams()
 
   useEffect(() => {
     fetchData(`/projects/${id}`).then((data) => {
       setProject(data)
-    })
+    }).catch((err) => setError(err))
   }, [id])
 
   function bugsHandler (id) {
     fetchData(`/projects/${id}/bugs`).then((data) => {
       setBugs(data)
-    })
+    }).catch((err) => setError(err))
   }
 
   return (
     <div>
+      {error && <p>{error.message}</p>}
       {project && (
         <div className='d-flex flex-column align-items-center justify-content-center m-5'>
           <h3>Specfic Project Detail</h3>

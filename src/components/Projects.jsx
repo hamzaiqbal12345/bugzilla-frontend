@@ -6,15 +6,17 @@ import { Link } from 'react-router-dom'
 
 const Projects = () => {
   const [data, setData] = useState([])
+  const [error, setError] = useState()
 
   useEffect(() => {
     fetchData('/projects').then((data) => {
       setData(data)
-    })
+    }).catch((err) => setError(err))
   }, [])
 
   return (
     <div className='d-flex flex-column align-items-center justify-content-center m-5'>
+      {error && <p>{error.message}</p>}
       <h1>Listing Projects</h1>
       <Table striped bordered hover>
         <thead>
